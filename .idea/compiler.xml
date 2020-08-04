@@ -9,5 +9,8 @@
         <module name="design_pattern" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springcloud" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
