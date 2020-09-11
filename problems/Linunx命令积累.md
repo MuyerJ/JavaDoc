@@ -27,6 +27,14 @@ yum -y install wget
 
 wget https://mirrors.tuna.tsinghua.edu.cn/apache/lucene/solr/7.7.3/solr-7.7.3.tgz
 
+#### 7.防火墙相关
+查看防火墙状态：firewall-cmd --state
+
+停止防火墙：systemctl stop firewalld.service
+
+禁用防火墙：systemctl disable firewalld.service
+
+
 
 
 
