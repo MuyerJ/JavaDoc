@@ -34,6 +34,10 @@ wget https://mirrors.tuna.tsinghua.edu.cn/apache/lucene/solr/7.7.3/solr-7.7.3.tg
 
 禁用防火墙：systemctl disable firewalld.service
 
+#### 8.复制/移动/删除
+
+cp -c file1 file2
+
 
 
 
