@@ -44,6 +44,34 @@ dataLogDir=日志目录
 
 ```
 
+### 三、客户端使用
+
+```
+#查看目录结构
+ls path  
+
+#启动client
+./zkCli.sh start
+
+#创建节点
+create [-s] [-e] path data [acl]
+	-s有序
+	-e临时
+
+#获取节点信息
+get path
+
+#更新节点信息
+set path data
+
+#监控节点信息
+get path watch
+
+```
+
+
+
+
 
 
 
