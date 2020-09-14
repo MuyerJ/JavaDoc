@@ -123,8 +123,36 @@ step2：执行命令 => ./solr create_core -c db2_core -force
  ![](https://github.com/MuyerJ/JavaStudy/blob/master/problems/solr/img/solr_create_cmd.png)
 
 
+## 四、solr控制台介绍
 
+#### 1.主面板
+- Dashboard 仪表盘
+- Logging 日志
+- Core Admin core管理
+- Java Properties
+#### 2.core主要操作
 
+ ![](https://github.com/MuyerJ/JavaStudy/blob/master/problems/solr/img/core_operate.jpg)
+- Analysis 分析器
+  可以对查询进行模拟
+  Field Value(index)：索引分词
+  Filed Value(Query)：查询条件分词
+  Analyse FieldType：分词策略
+  可选值来源于:conf/managed-schema
+  可以手动自己去修改managed-schema
+
+- Schema
+
+地址：solr/db2_core/conf/
+注意：db2_core指自己创建的索引库
+
+ ![](https://github.com/MuyerJ/JavaStudy/blob/master/problems/solr/img/core_schema.jpg)
+
+1）添加
+
+2）
+
+3）
 
 
 
