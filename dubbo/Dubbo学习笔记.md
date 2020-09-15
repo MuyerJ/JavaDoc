@@ -1,0 +1,67 @@
+# Dubbo学习笔记
+
+## 一、dubbo框架【全面介绍】和【使用快速入门】
+
+####  1、全面介绍
+- ORM/MVC/RPC/SOA
+- 传统mvc不同的service都会注册ioc中，在rpc中会把远端的service注册到本地ioc中
+- 注意有两个dubbbo版本的依赖
+```
+com.alibaba.dubbo:2.6
+
+org.apache.dubbo:2.7
+
+使用的时候需要:【curator-framenwork:4.0.1】【curator-recipes:4.0.1】；不加这两个依赖会报错
+
+还需要引入【zookeeper:3.4.13】x
+```
+
+- github中有两个dubbo管理台
+```
+master分支老版本：dubbo-admin/dubbo-monitor-simple
+develop新版本
+```
+
+- 一些配置
+```
+负载均衡：默认轮询==>xml修改成轮询==>管理台修改成随机
+集群容错：配置cluster
+服务降级：admin配置==>动态配置==>
+路由规则：服务级别之上，筛选服务
+动态配置：服务级别，针对服务具体属性的
+	|针对消费者过滤|动态参数名字&参数值|服务降级mock数据
+标签路由：实现灰度发布、蓝绿发布
+黑白名单
+服务分组
+分组聚合
+本地存根
+```
+
+### 2、使用快速入门
+
+### 3、dubbo核心成分：
+	url===总线服务
+	invoker==Dubbo的核心模型，代表一个执行体；代理对象
+	invocation==调用的对象
+
+## 二、Dubbo扩展机制
+
+### 1.Java SPI
+//加载这个接口的实现类
+//指定想要加载的类名现类，需要全限定名的文件（META-INF/services/）指定想要加载的类名ServiceLoader.load(class)
+缺点：全加载，耗性能
+dubbo SPI可以缓存数据
+
+### 2.Dubbo SPI
+1）基本使用
+引入包【dubbo-common】
+@SPI加载接口中
+ExtensionLoader.getExtension(class).getExtension("key");
+
+2）应用
+自动注入
+
+AOP
+
+
+
