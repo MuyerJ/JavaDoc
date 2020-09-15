@@ -11,7 +11,7 @@ solr学习笔记
 ```
 导入数据，solr会被它以某种格式保存在索引库里面
 ```
- ![](https://github.com/MuyerJ/JavaStudy/blob/master/problems/solr/img/solr_索引库展示.jpg)
+ ![](img/solr_索引库展示.jpg)
 - 索引分词
 ```
 导入数据时对某些语句进行分词
@@ -46,7 +46,7 @@ solr里面搜索出来的某个数据，都是以xml或json来表示
 
 如下图，没有创建索引，都是默认的文件
 
- ![](https://github.com/MuyerJ/JavaStudy/blob/master/problems/solr/img/solr配置文件.jpg)
+ ![](img/solr配置文件.jpg)
 
 如下是创建一个索引后，主目录的文件结构
 ```
@@ -92,7 +92,7 @@ data/
 索引库类似于mysql的数据库，所以solr必须创建一个索引库才能够使用
 有两种方式
 1）使用solr管理页面创建（不推荐）
-![](https://github.com/MuyerJ/JavaStudy/blob/master/problems/solr/img/solr_create_core.jpg)
+![](img/solr_create_core.jpg)
 
 - 属性说明：
 
@@ -106,12 +106,12 @@ config：指定配置文件；db1_core/conf/solfconfig.xml
 
 shcema：指定属性的下xml；db1_core/conf/managed-shema
 - 点击添加会报错
-   ![](https://github.com/MuyerJ/JavaStudy/blob/master/problems/solr/img/solr_create_error.jpg)
+   ![](img/solr_create_error.jpg)
 
    解决：
    进入 solr目录，执行命令 =>  cp -r ../configsets/sample_techproducts_configs/* ./
    再点击add core
-    ![](https://github.com/MuyerJ/JavaStudy/blob/master/problems/solr/img/solr_create_error_result.jpg)
+    ![](img/solr_create_error_result.jpg)
 
 
 2）使用命令推荐
@@ -120,7 +120,7 @@ step1：进入solr的bin目录
 
 step2：执行命令 => ./solr create_core -c db2_core -force
 
- ![](https://github.com/MuyerJ/JavaStudy/blob/master/problems/solr/img/solr_create_cmd.png)
+ ![](img/solr_create_cmd.png)
 
 
 ## 四、solr控制台介绍
@@ -132,7 +132,7 @@ step2：执行命令 => ./solr create_core -c db2_core -force
 - Java Properties
 #### 2.core主要操作
 
- ![](https://github.com/MuyerJ/JavaStudy/blob/master/problems/solr/img/core_operate.jpg)
+ ![](img/core_operate.jpg)
 - Analysis 分析器
   可以对查询进行模拟
   Field Value(index)：索引分词
@@ -146,7 +146,7 @@ step2：执行命令 => ./solr create_core -c db2_core -force
 地址：solr/db2_core/conf/
 注意：db2_core指自己创建的索引库
 
- ![](https://github.com/MuyerJ/JavaStudy/blob/master/problems/solr/img/core_schema.jpg)
+ ![](img/core_schema.jpg)
 
 1）添加
 
