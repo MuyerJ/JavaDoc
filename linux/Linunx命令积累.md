@@ -36,8 +36,15 @@ wget https://mirrors.tuna.tsinghua.edu.cn/apache/lucene/solr/7.7.3/solr-7.7.3.tg
 
 #### 8.复制/移动/删除
 
+移动
 cp -c file1 file2
 
+mv file1/ /file2
+
+修改文件名字
+mv abc.text cba.txt
+ 
+ 
 
 
 
