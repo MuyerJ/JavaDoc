@@ -64,4 +64,15 @@ ExtensionLoader.getExtension(class).getExtension("key");
 AOP
 
 
+## 三、dubbo配置文件的加载顺序
+- -D > xml > properties
+```
+-Ddubbo.protocal.port=20880
+dubbo.xml  <dubbo:protocal port="" />
+dubbo.properties dubbo.protocal.port=20880
+```
+
+
+
+
 
