@@ -72,7 +72,51 @@ dubbo.xml  <dubbo:protocal port="" />
 dubbo.properties dubbo.protocal.port=20880
 ```
 
+### 四、超时处理和覆盖规则
 
+1、提供者设置
+- 提供者全局配置
+```xml
+<dubbo:provider timeout="3000"></dubbo:provider>
+```
+- 接口设置
+```xml
+<dubbo:service timeout="3000">
+    <dubbo:method name="方法名字" timeout=""></dubbo:method> 
+</dubbo:service>
+```
 
+2、消费者设置
+- 全局配置
+```xml
+<dubbo:consumer timeout=""></dubbo:consumer>
+```
+- 接口配置
+```xml
+<dubbo:reference timeout="">
+    <dubbo:methond name="方法名字" timeout=""></dubbo:methond>
+</dubbo:reference>
+```
+
+3、说明
+
+- 顺序
+消费者的method、提供者的method、消费者的reference、提供者的reference、消费者全局、提供者全局
+
+- 注解版本
+
+@Service(timeout="")、@Reference(timeout="")、方法？、全局？
+
+- 注意
+
+建议实际配置在服务端、修改的是服务端的消费者：原因，没有人比我自己了解我
+
+几个地方配置的例子：
+```xml
+<dubbo:consumer check=""></dubbo:consumer>
+<dubbo:reference check=""></dubbo:consumer>
+<dubbo:metthod></dubbo:consumer> 启动不检查
+注解方式：@Reference(check="")
+```
 
 
