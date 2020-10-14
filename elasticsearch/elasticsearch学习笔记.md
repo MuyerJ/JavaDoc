@@ -25,6 +25,8 @@ https://www.elastic.co/cn/downloads/past-releases/elasticsearch-6-2-4
 
 ==> 启动会出现错误，原因elasticsearch默认不能以root用户启动
 
+![](img/es不能root用户.jpg)
+
 ==> 安装包上传给普通用户（root用户家目录是：/root ；普通用户的家目录时：/home/username）
 
 ==> 执行第2个步骤（解压）
@@ -70,6 +72,68 @@ kibana-6.2.4-x86_64.rpm
 ### 四、ES简介、原理
 
 ### 五、ES基本操作
+
+- 1.索引操作
+
+```xml
+创建索引（注意名字必须全部小写）：
+    PUT /indexname  
+查看索引：   
+    单个索引：GET /indexname
+    全部索引：GET/_cat/indices?v
+删除索引：
+    单个索引：DELETE /indexname
+    所有索引：DELETE /*
+
+```
+
+- 2.创建索引、类型、映射
+
+```xml
+PUT /indexname{
+    "mappings":{
+        "typename":{
+            "properties":{
+                "id":{"type":"keyword"}
+                "age":{"type":"integer"}
+            }
+        }
+    }
+}
+```
+- 3.查看索引类型和映射
+
+```xml
+GET /indexname/_mapping
+```
+- 4.文档操作
+```xml
+添加文档：
+    PUT /indexname/type/手动输入id{k:v}
+查询文档
+更新文档
+    POST /indexname/type/id/_update{
+        "doc":{
+            需要更新的字段
+        }
+    }
+    
+    POST /indexname/type/手动输入id/_update{
+        "script":ctx_source.文档的字段(类型integer) + = 1
+    }
+
+删除文档
+    DELETE /indexname/type/_id
+    
+批量操作（每一个都是独立的）
+    POST /index/type/_bulk{
+        "index":{},
+        "update":{},
+        "delete":{},
+        ...
+    }
+
+```
 
 ### 六、ES高级搜索
 
