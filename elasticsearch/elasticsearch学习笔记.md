@@ -136,6 +136,120 @@ GET /indexname/_mapping
 ```
 
 ### 六、ES高级搜索
+- 1.URL（query String as parameter）
+
+```xml
+GET /index/type/_search?q=*&sort=age:desc&size=2&from=1
+sort=age:desc 排序
+size=2&from=(当前页-1)*分页
+
+```
+
+- 2.DSL（Request Body方式） 推荐使用，特殊领域查询语言
+
+1）全查+条件
+```xml
+GET /index/type/_search{
+    //查询所有
+    "query":{
+        "match_all":{
+        
+        }
+    },
+    //指定条数
+    "size":4,
+    //分页
+    "from":2,
+    //排序
+    "sort":[{}],
+    //返回指定字段
+    "_source":["k1","k2"]
+}
+
+```
+2）关键字查询（term查询）
+```xml
+"query":{
+    "term":{
+        "content":{
+            "value":"好人"
+        }
+    }
+}
+```
+
+3）范围查询(range)
+```xml
+"query":{
+    "range":{
+        "age":{
+            "gte/gt":1,"lte/lt":10
+        }
+    }
+}
+```
+
+4）前缀查询(prefix)
+```xml
+"query":{
+    "prefix":{
+        "content":{
+            "value":"spring"
+        }
+    }
+}
+```
+5）通配符查询(wildcard)
+
+```xml
+*任意多个字符；?一个任意字符
+
+"query":{
+    "wildcard":{
+        "name":{
+            "valule":"叶?"
+        }
+    }
+}
+
+```
+6）多id查询(ids)
+
+```xml
+"query":{
+    "ids":{
+        "values":[
+            "",""
+        ]
+    }
+}
+```
+
+7）模糊查询(fuzzy)
+```xml
+允许错误在0-2最大距离
+
+"query":{
+    "fuzzy":{
+        "name":"叶大江"
+    }
+}
+
+```
+8）布尔查询（bool：must/should/must_not）
+```xml
+"query":{
+    "bool":{
+        "must":[{"term":{}},{}],
+        "must":[{"ids":{}},{}],
+    }
+}
+```
+
+9）多字段查询
+
+10）多字段分词查询
+
 
 ### 七、JavaSe操作ES
 
